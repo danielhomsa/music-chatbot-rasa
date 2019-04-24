@@ -1,23 +1,23 @@
 slots:
-  date-period:
-    type: text
-  geo-city:
-    type: text
-  doremus-artist:
-    type: text
   doremus-instrument:
     type: text
   doremus-genre:
     type: text
+  date-period:
+    type: text
+  geo-city:
+    type: text
   number:
+    type: text
+  doremus-artist:
     type: text
   doremus-strictly:
     type: text
-  discover-artist:
+  works-by-followup:
     type: float
     min_value: 0
     max_value: 10
-  works-by-followup:
+  discover-artist:
     type: float
     min_value: 0
     max_value: 10
@@ -25,37 +25,102 @@ slots:
     type: unfeaturized
 
 intents:
- - Default Fallback Intent
  - Default Welcome Intent
- - discover-artist
- - find-artist
- - find-performance
- - hello
- - help
- - reset
- - works-by - no
- - works-by - yes
- - works-by-artist
- - works-by-genre
- - works-by-instrument
  - works-by-years
+ - find-artist
+ - works-by - no
+ - find-performance
+ - works-by-artist
+ - works-by-instrument
+ - works-by-genre
+ - hello
  - works-by
- - inform_period
- - inform_instrument
- - inform_genre
- - inform_artist
+ - Default Fallback Intent
+ - help
+ - discover-artist
+ - reset
+ - works-by - yes
 
 entities:
-  - date-period
-  - geo-city
-  - doremus-artist
   - doremus-instrument
   - doremus-genre
+  - date-period
+  - geo-city
   - number
+  - doremus-artist
   - doremus-strictly
 
 templates:
+ utter_input_welcome:
+  - "Salut !"
+  - "Bonjour !"
+  - "Salutations !"
+  - "Bienvenue !"
+  - "Ciao!"
+  - "Buongiorno!"
+  - "Hi!"
+  - "Hello!"
+  - "Good day!"
+  - "Greetings!"
+ utter_works_by_years:
+  - "Perfect! Do you want to add something?"
+  - "Ok! Est-ce que tu veux ajouter quelque chose?"
+  - "Veux-tu ajouter quelque chose?"
+ utter_works_by_years_follow_up_date_period:
+  - "Ok! Whats the composition period?"
+  - "All right! Tell me the composition period"
+  - "Quelle année?"
+ utter_find_artist:
+ utter_works_by_works_by_no:
+ utter_find_performance:
+ utter_find_performance_follow_up_date_period:
+  - "In which period?"
+  - "When?"
+  - "En quel période?"
+  - "In che periodo?"
+ utter_works_by_artist:
+  - "Parfait! Veux-tu ajouter quelque chose?"
+  - "Ok! Est-ce que tu veux ajouter quelche chose?"
+  - "Perfect! Do you want to add something?"
+ utter_works_by_artist_follow_up_doremus_artist:
+  - "Quel compositeur?"
+  - "Ok! Chi è lartista?"
+  - "Sure! Who is the artist?"
+ utter_works_by_instrument:
+  - "Perfect! Do you want to add something?"
+  - "Veux-tu ajouter quelque chose?"
+ utter_works_by_instrument_follow_up_doremus_instrument:
+  - "Ok! Just tell me the instrument"
+  - "Quel instrument?"
+ utter_works_by_genre:
+  - "Veux-tu ajouter quelque chose?"
+  - "Ok! Est-ce que tu veux ajouter quelque chose?"
+  - "Perfect! Do you want to add something?"
+ utter_works_by_genre_follow_up_doremus_genre:
+  - "Quel genre?"
+  - "Ok! Dimmi solo che genere"
+  - "Ok! Just tell me the genre, please"
+ utter_:
+  - "Hi! Everyday I try to learn as much as possible about music. Try me if you dont believe it!"
+  - "Salut! Je suis DOREMUS Bot! Tous les jours jessaie dapprendre informations sur la musique classique!"
+  - "Hey ciao. Ogni giorno cerco di imparare il più possibile sulla musica classica. Mettimi alla prova se non ci credi!"
+ utter_works_by:
+  - "Sure! Do you want to add some filters? Like the artist, instruments, genre or composition period."
+  - "Ok! Do you want to add some filters? Like the artist, instruments, genre or composition period."
+  - "No problem! Do you want to add some filters? Like the artist, instruments, genre or composition period."
+  - "Tu nas spécifié pas beaucoup de filtres! Veux-tu ajouter quelque chose?"
+  - "Non hai specificato molti filtri! Vuoi aggiungere qualcosa?"
  utter_input_unknown:
+  - "Jai du mal à comprendre cette question."
+  - "Jai mal compris votre demande."
+  - "Je nai pas saisi ce que vous avez dit."
+  - "Je crois que je ne vous suis pas."
+  - "Je ne comprends pas de quoi vous me parlez."
+  - "Non penso di seguirti. Potresti ripetere?"
+  - "Potresti dirlo ancora una volta?"
+  - "Potresti essere più specifico?"
+  - "Non ho capito bene. Potresti ripetere?"
+  - "Non ti ho sentito bene. Puoi ripetere?"
   - "I didnt get that. Can you say it again?"
   - "I missed what you said. Say it again?"
   - "Sorry, could you say that again?"
@@ -68,97 +133,62 @@ templates:
   - "Say that again?"
   - "I didnt get that."
   - "I missed that."
- utter_input_welcome:
-  - "Hi!"
-  - "Hello!"
-  - "Good day!"
-  - "Greetings!"
-  - "Hi! Everyday I try to learn as much as possible about music. Try me if you dont believe it!"
+ utter_help:
+  - "Je peux faire plusieurs choses... Par exemple, demande-moi \"Donne-moi deux oeuvres de Mozart!\", ou... \"Parle-moi de Vivaldi\", ou... \"Proposes-moi un évènement le mois prochain\". Tu peux trouved plus exemples ici: https://github.com/D2KLab/music-chatbot/blob/master/README.md#bot-features"
+  - "I can do a lot of things... For example, ask me \"Give me 2 works by Mozart!\", or... \"Tell me something about Vivaldi\", or... \"Are there any events next week?\". Start now if you want! Find more example here: https://github.com/D2KLab/music-chatbot/blob/master/README.md#bot-features"
  utter_discover_artist:
-  - "Discovering Artist..." 
  utter_discover_artist_follow_up_doremus_artist:
-
+  - "Ok! Chi è lartista?"
+  - "Quale artista?"
   - "Ok! Who is the artist?"
   - "Which artist?"
   - "Can you tell me the name of the artist?"
- utter_find_artist:
-  - "finding artist..."
- utter_find_performance:
-  - "finding performance..."
- utter_find_performance_follow_up_date_period:
-  - "In which period?"
-  - "When?"
- utter_help:
-  - "I can do a lot of things... For example, ask me \"Give me 2 works by Mozart!\", or... \"Tell me something about Vivaldi\", or... \"Are there any events next week?\". Start now if you want! Find more example here: https://github.com/D2KLab/music-chatbot/blob/master/README.md#bot-features"
  utter_reset:
+  - "Au revoir! Jespère vous revoir bientôt."
+  - "Daccord, appelez-moi quand vous avez besoin."
   - "Bye! I hope to chat with you again really soon!"
   - "See you later!"
   - "Okay, see you!"
   - "Bye bye. Call me when you need!"
- utter_works_by_works_by_no:
-  - "ok!"
  utter_works_by_works_by_yes:
+  - "Bien sur! Quoi?"
   - "Ok, tell me what"
- utter_works_by_artist:
-  - "Perfect! Do you want to add something?"
- utter_works_by_artist_follow_up_doremus_artist:
-
-  - "Sure! Who is the artist?"
- utter_works_by_genre:
-  - "Ok! Est-ce que tu veux ajouter quelque chose?"
-  - "Perfect! Do you want to add something?"
- utter_works_by_genre_follow_up_doremus_genre:
-
-  - "Ok! Just tell me the genre, please"
- utter_works_by_instrument:
-  - "Perfect! Do you want to add something?"
- utter_works_by_instrument_follow_up_doremus_instrument:
-  - "Ok! Just tell me the instrument"
- utter_works_by_years:
-  - "Perfect! Do you want to add something?"
-
- utter_works_by_years_follow_up_date_period:
-  - "Ok! Whats the composition period?"
-  - "All right! Tell me the composition period"
- utter_works_by:
-  - "Sure! Do you want to add some filters? Like the artist, instruments, genre or composition period."
-  - "Ok! Do you want to add some filters? Like the artist, instruments, genre or composition period."
-  - "No problem! Do you want to add some filters? Like the artist, instruments, genre or composition period."
-
 
 actions:
-  - action.input_unknown
-  - utter_input_unknown
   - action.input_welcome
   - utter_input_welcome
-  - action.discover_artist
-  - utter_discover_artist
-  - utter_discover_artist_follow_up_doremus_artist
-  - action.find_artist
-  - utter_find_artist
-  - action.find_performance
-  - utter_find_performance
-  - utter_find_performance_follow_up_date_period
-  - action.help
-  - utter_help
-  - action.reset
-  - utter_reset
-  - action.works_by_works_by_no
-  - utter_works_by_works_by_no
-  - action.works_by_works_by_yes
-  - utter_works_by_works_by_yes
-  - action.works_by_artist
-  - utter_works_by_artist
-  - utter_works_by_artist_follow_up_doremus_artist
-  - action.works_by_genre
-  - utter_works_by_genre
-  - utter_works_by_genre_follow_up_doremus_genre
-  - action.works_by_instrument
-  - utter_works_by_instrument
-  - utter_works_by_instrument_follow_up_doremus_instrument
   - action.works_by_years
   - utter_works_by_years
   - utter_works_by_years_follow_up_date_period
+  - action.find_artist
+  - utter_find_artist
+  - action.works_by_works_by_no
+  - utter_works_by_works_by_no
+  - action.find_performance
+  - utter_find_performance
+  - utter_find_performance_follow_up_date_period
+  - action.works_by_artist
+  - utter_works_by_artist
+  - utter_works_by_artist_follow_up_doremus_artist
+  - action.works_by_instrument
+  - utter_works_by_instrument
+  - utter_works_by_instrument_follow_up_doremus_instrument
+  - action.works_by_genre
+  - utter_works_by_genre
+  - utter_works_by_genre_follow_up_doremus_genre
+  - action.
+  - utter_
   - action.works_by
   - utter_works_by
+  - action.input_unknown
+  - utter_input_unknown
+  - action.help
+  - utter_help
+  - action.discover_artist
+  - utter_discover_artist
+  - utter_discover_artist_follow_up_doremus_artist
+  - action.reset
+  - utter_reset
+  - action.works_by_works_by_yes
+  - utter_works_by_works_by_yes
 
